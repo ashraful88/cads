@@ -88,3 +88,5 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 MEDIA_ROOT = 'media'
 
 STATIC_ROOT = 'static'
+
+
