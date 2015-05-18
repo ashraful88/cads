@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ads', 
+    'ads',	
 	'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -96,10 +96,14 @@ WSGI_APPLICATION = 'cads.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': ''
     }
 }
+
+#db for heroku
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -126,7 +130,7 @@ MEDIA_ROOT = 'media'
 
 STATIC_ROOT = 'static'
 
-
+#tpl for allauth
 TEMPLATE_DIRS = (
     # allauth templates: you could copy this directory into your
     # project and tweak it according to your needs
@@ -141,3 +145,7 @@ TEMPLATE_DIRS = (
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']

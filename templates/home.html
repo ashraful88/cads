@@ -1,4 +1,19 @@
-<a href="">Login/Register</a>
+
+{% if request.user.is_authenticated %}
+<img src="{{ request.user.profile.profile_image_url }}"/>
+    <a href="/accounts/logout/" class="pull-right">Logout</a>
+    {% if request.user.first_name or request.user.last_name %}
+        {{ request.user.first_name }} {{ request.user.last_name }}
+    {% else %}
+        {{ request.user.username }}
+    {% endif %}
+    {% if request.user.profile.account_verified %} (verified) {% else %} (unverified) {% endif %}
+ 
+{% else %}
+    <a href="/accounts/login/" class="pull-right">Login</a>
+{% endif %}
+
+
 {% block ads_entries %}
 {% for object in object_list %}
   <div class="post">
