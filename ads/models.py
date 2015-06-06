@@ -30,7 +30,7 @@ class EntryQuerySet(models.QuerySet):
 # Create your models here.
 class Entry(models.Model):
 	title = models.CharField(max_length=200)
-	image = models.TextField()
+	image = models.ImageField(upload_to='images/%Y/%m/%d')
 	price = models.FloatField()
 	body = models.TextField()
 	slug = models.SlugField(max_length=200, unique=True)

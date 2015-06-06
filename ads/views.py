@@ -11,7 +11,7 @@ class AdsIndex(generic.ListView):
     paginate_by = 10
 
 def ad_new(request):
-    form = AdForm(request.POST)
+    form = AdForm(request.POST, request.FILES)
 
     if form.is_valid():
         post = form.save(commit=False)
