@@ -1,2 +1,7 @@
-Django==1.8.3
-Pillow==2.8.1
+Django
+Pillow
+dj-database-url
+gunicorn
+whitenoise
+django-allauth
+requests
