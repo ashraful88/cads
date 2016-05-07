@@ -17,14 +17,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qo86oe81_i-rv)^bep#zy)9sw76y-$sg3$g*01-m!(^@h#hm1s'
+SECRET_KEY = 'supersecretcodehere'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 #TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = ['209.95.48.84', 'dordam.com']
+#server ip and domain
+ALLOWED_HOSTS = ['192.168.1.1', 'mydomain.com']
 
 
 # Application definition
@@ -106,9 +106,9 @@ WSGI_APPLICATION = 'cads.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dordb',
-        'USER': 'pyddbu',
-        'PASSWORD': 'a622786#$%',
+        'NAME': 'db_name',
+        'USER': 'db_user',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -137,7 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 #TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 
-MEDIA_ROOT = '/var/www/dordam.com/env/cads/media'
+MEDIA_ROOT = '/var/www/mydomain.com/env/cads/media'
 STATIC_ROOT = 'static'
 
 STATIC_URL = '/static/'
