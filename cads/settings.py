@@ -22,9 +22,9 @@ SECRET_KEY = 'qo86oe81_i-rv)^bep#zy)9sw76y-$sg3$g*01-m!(^@h#hm1s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+#TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['209.95.48.84', 'dordam.com']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ads',	
-	'django.contrib.sites',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -49,18 +49,27 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.request",
-    "django.contrib.messages.context_processors.messages",
-    "allauth.account.context_processors.account",
-    "allauth.socialaccount.context_processors.socialaccount",
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ]
+        },
+    },
+]
 
 SITE_ID = 1
 
@@ -97,17 +106,17 @@ WSGI_APPLICATION = 'cads.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydatabase',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'mypassword',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': 'dordb',
+        'USER': 'pyddbu',
+        'PASSWORD': 'a622786#$%',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
 #db for heroku
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+#import dj_database_url
+#DATABASES['default'] = dj_database_url.config()
 
 
 # Internationalization
@@ -126,26 +135,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
+#TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 
-STATIC_URL = '/static/'
-
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
-
-MEDIA_ROOT = 'media'
-
+MEDIA_ROOT = '/var/www/dordam.com/env/cads/media'
 STATIC_ROOT = 'static'
 
+STATIC_URL = '/static/'
+MEDIA_URL = 'media/'
+
 #tpl for allauth
-TEMPLATE_DIRS = (
+#TEMPLATE_DIRS = (
     # allauth templates: you could copy this directory into your
     # project and tweak it according to your needs
     # os.path.join(PROJECT_ROOT, 'templates', 'uniform', 'allauth'),
     # example project specific templates
-    os.path.join(BASE_DIR, 'templates', 'plain', 'example'),
+    #os.path.join(BASE_DIR, 'templates', 'plain', 'example'),
     #os.path.join(BASE_DIR, 'allauthdemo', 'templates', 'bootstrap', 'allauth'),
     #os.path.join(BASE_DIR, 'templates', 'allauth'),
-    os.path.join(BASE_DIR, 'templates'),
-)
+    #os.path.join(BASE_DIR, 'templates'),
+#)
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 

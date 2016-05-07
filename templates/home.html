@@ -1,25 +1,261 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Buy Sell Anything- Dordam.com</title>
+    <link rel="stylesheet" href="/static/cads/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/cads/css/custom.css"/>
+    <link rel="stylesheet" href="/static/cads/css/font-awesome.css"/>
+    <link rel="stylesheet" href="/static/cads/css/style.css"/>
+    <link rel="stylesheet" href="/static/cads/css/responsive.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,600italic,600,300,300italic' rel='stylesheet' type='text/css'>
+</head>
 
-{% if request.user.is_authenticated %}
-<img src="{{ request.user.profile.profile_image_url }}"/>
-    <a href="/accounts/logout/" class="pull-right">Logout</a>
-    {% if request.user.first_name or request.user.last_name %}
-        {{ request.user.first_name }} {{ request.user.last_name }}
-    {% else %}
-        {{ request.user.username }}
-    {% endif %}
-    {% if request.user.profile.account_verified %} (verified) {% else %} (unverified) {% endif %}
- 
-{% else %}
-    <a href="/accounts/login/" class="pull-right">Login</a>
-{% endif %}
+<body>
+<header>
+    <section class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1 class="logo"><a href="http://dordam.com/"><img src="/static/cads/images/logo.png"/></a></h1>
+                </div>
+                <div class="col-md-8">
+                    <div class="search-n-post">
+                        <a class="s-item search" href="/ads/"><i class="c-icon c-search"></i>Search an Ad</a>
+                        <span class="or"><span>OR</span></span>
+                        <a class="s-item post" href="/post-ad/">Post an Ad<i class="c-icon c-pin"></i></a>
+                    </div>
+                    <div class="user-access">
+					{% if request.user.is_authenticated %}
+						<img src="{{ request.user.profile.profile_image_url }}"/>
+							<a href="/accounts/logout/" class="user-access-item login">Logout</a>
+							{% if request.user.first_name or request.user.last_name %}
+								{{ request.user.first_name }} {{ request.user.last_name }}
+							{% else %}
+								{{ request.user.username }}
+							{% endif %}
+							{% if request.user.profile.account_verified %} (verified) {% else %} (unverified) {% endif %}
+						 
+						{% else %}
+						<a class="user-access-item login" href="/accounts/login/"><i class="c-icon c-login"></i>Login</a>
+                        <a class="user-access-item register" href="/accounts/signup/"><i class="c-icon c-register"></i>Register</a>
+						{% endif %}
+       
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+</header>
+<div id="page-content">
+
+<section class="banner">
+    <div class="container">
+        <div class="row banner-top-row">
+            <div class="col-md-7">
+                <div class="banner-info">
+                    <h2>Seeking for Buy or Sale?</h2>
+                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </p>
+                    <a class="btn" href="/ads/">View All AD</a>
+                </div>
+            </div>
+            <div class="col-md-5 map-wrapper">
+                <img src="/static/cads/images/map.png" alt="Map" />
+            </div>
+            <div class="col-md-12">
+                <ul class="district-list">
+                    <li><a href="">Dhaka</a></li>
+                    <li><a href="">Sylhet</a></li>
+                    <li><a href="">Rajshahi</a></li>
+                    <li><a href="">Barisal</a></li>
+                    <li><a href="">Chittagong</a></li>
+                    <li><a href="">Khulna</a></li>
+                    <li><a href="">Rangpur</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="popular-cat-row">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 popular-cat-title">
+                <h3>Popular Categories</h3>
+            </div>
+            <div class="col-md-9 popular-cat-item">
+                <a class="popular-cat-link" href="#"><img src="/static/cads/images/pop_cat.png" alt="Mobile"/></a>
+                <a class="popular-cat-link" href="#"><img src="/static/cads/images/pop_cat.png" alt="Mobile"/></a>
+                <a class="popular-cat-link" href="#"><img src="/static/cads/images/pop_cat.png" alt="Mobile"/></a>
+                <a class="popular-cat-link" href="#"><img src="/static/cads/images/pop_cat.png" alt="Mobile"/></a>
+                <a class="popular-cat-link" href="#"><img src="/static/cads/images/pop_cat.png" alt="Mobile"/></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="all-categories">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">All Categories</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="category-block text-center">
+                    <span class="cat-icon"><i class="fa fa-mobile-phone"></i></span>
+                    <h4>Electronics</h4>
+                    <ul class="cat-items">
+                        <li><a href="#">Cameras & Photo</a></li>
+                        <li><a href="#">Car Audio</a></li>
+                        <li><a href="#">Cellular Phones</a></li>
+                        <li><a href="#">Computers & Networking</a></li>
+                        <li><a href="#">DVD Players & Recorders</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">MP3 Players & Accessories</a></li>
+                        <li><a href="#">Portable</a></li>
+                        <li><a href="#">Satellite, Cable TV</a></li>
+                        <li><a href="#">Telephones</a></li>
+                        <li><a href="#">Televisions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="category-block text-center">
+                    <span class="cat-icon"><i class="fa fa-mobile-phone"></i></span>
+                    <h4>Electronics</h4>
+                    <ul class="cat-items">
+                        <li><a href="#">Cameras & Photo</a></li>
+                        <li><a href="#">Car Audio</a></li>
+                        <li><a href="#">Cellular Phones</a></li>
+                        <li><a href="#">Computers & Networking</a></li>
+                        <li><a href="#">DVD Players & Recorders</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">MP3 Players & Accessories</a></li>
+                        <li><a href="#">Portable</a></li>
+                        <li><a href="#">Satellite, Cable TV</a></li>
+                        <li><a href="#">Telephones</a></li>
+                        <li><a href="#">Televisions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="category-block text-center">
+                    <span class="cat-icon"><i class="fa fa-mobile-phone"></i></span>
+                    <h4>Electronics</h4>
+                    <ul class="cat-items">
+                        <li><a href="#">Cameras & Photo</a></li>
+                        <li><a href="#">Car Audio</a></li>
+                        <li><a href="#">Cellular Phones</a></li>
+                        <li><a href="#">Computers & Networking</a></li>
+                        <li><a href="#">DVD Players & Recorders</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">MP3 Players & Accessories</a></li>
+                        <li><a href="#">Portable</a></li>
+                        <li><a href="#">Satellite, Cable TV</a></li>
+                        <li><a href="#">Telephones</a></li>
+                        <li><a href="#">Televisions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="category-block text-center">
+                    <span class="cat-icon"><i class="fa fa-mobile-phone"></i></span>
+                    <h4>Electronics</h4>
+                    <ul class="cat-items">
+                        <li><a href="#">Cameras & Photo</a></li>
+                        <li><a href="#">Car Audio</a></li>
+                        <li><a href="#">Cellular Phones</a></li>
+                        <li><a href="#">Computers & Networking</a></li>
+                        <li><a href="#">DVD Players & Recorders</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">MP3 Players & Accessories</a></li>
+                        <li><a href="#">Portable</a></li>
+                        <li><a href="#">Satellite, Cable TV</a></li>
+                        <li><a href="#">Telephones</a></li>
+                        <li><a href="#">Televisions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="category-block text-center">
+                    <span class="cat-icon"><i class="fa fa-mobile-phone"></i></span>
+                    <h4>Electronics</h4>
+                    <ul class="cat-items">
+                        <li><a href="#">Cameras & Photo</a></li>
+                        <li><a href="#">Car Audio</a></li>
+                        <li><a href="#">Cellular Phones</a></li>
+                        <li><a href="#">Computers & Networking</a></li>
+                        <li><a href="#">DVD Players & Recorders</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">MP3 Players & Accessories</a></li>
+                        <li><a href="#">Portable</a></li>
+                        <li><a href="#">Satellite, Cable TV</a></li>
+                        <li><a href="#">Telephones</a></li>
+                        <li><a href="#">Televisions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="category-block text-center">
+                    <span class="cat-icon"><i class="fa fa-mobile-phone"></i></span>
+                    <h4>Electronics</h4>
+                    <ul class="cat-items">
+                        <li><a href="#">Cameras & Photo</a></li>
+                        <li><a href="#">Car Audio</a></li>
+                        <li><a href="#">Cellular Phones</a></li>
+                        <li><a href="#">Computers & Networking</a></li>
+                        <li><a href="#">DVD Players & Recorders</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">MP3 Players & Accessories</a></li>
+                        <li><a href="#">Portable</a></li>
+                        <li><a href="#">Satellite, Cable TV</a></li>
+                        <li><a href="#">Telephones</a></li>
+                        <li><a href="#">Televisions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<footer>
+
+    <section class="footer">
+        <div class="container">
+            <div class="row footer_row">
+                <div class="col-md-6">
+                    <a class="post-ad-btn">Post your free Add</a>
+                </div>
+                <div class="col-md-6 footer-right-col">
+                    <ul class="quick-links">
+                        <li><a href="@">Customer Service</a></li>
+                        <li><a href="@">Privacy & Policy</a></li>
+                        <li><a href="@">FAQ</a></li>
+                        <li><a href="@">About Us</a></li>
+                    </ul>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-{% block ads_entries %}
-{% for object in object_list %}
-  <div class="post">
-    <h2>{{ object.title }}</h2>
-    <p class="meta">{{ object.created }}</p>
-    {{ object.body }}
-  </div>
-{% endfor %}
-{% endblock %}
+
+
+
+</footer>
+<script type="text/javascript" src="/static/cads/js/jquery.js"></script>
+<script type="text/javascript" src="/static/cads/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/cads/js/custom.js"></script>
+</body>
+</html>

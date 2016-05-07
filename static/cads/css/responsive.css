@@ -1,0 +1,60 @@
+/* Responsive styles
+================================================== */
+
+/* Large Devices, Wide Screens */
+@media (min-width : 1200px) {
+	
+}
+
+
+/* Medium Devices, Desktops */
+@media (min-width : 992px) {
+}
+
+/* Small Devices, Tablets */
+@media (max-width: 991px) {
+    .header {
+        text-align: center;
+    }
+    .user-access {
+        float: left;
+    }
+    .logo {
+        margin: 0 0 40px;
+    }
+    .banner-info {
+        padding: 0;
+        text-align: center;
+    }
+    .banner .map-wrapper {
+        padding: 40px 0 20px;
+        text-align: center;
+    }
+    .popular-cat-title h3 {
+        padding: 0 0 20px;
+        text-align: center;
+    }
+    .popular-cat-item {
+        display: inline-block;
+        width: 100%;
+    }
+    .popular-cat-link {
+        margin: 0 10px;
+    }
+    .footer {
+        text-align: center;
+    }
+    .footer-right-col {
+        padding-top: 25px;
+    }
+    .footer-right-col ul {
+        text-align: center;
+    }
+
+}
+
+/* Small Devices Potrait */
+@media (max-width : 767px){
+
+}
+	

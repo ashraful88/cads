@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Buy Sell Anything- Dordam.com</title>
+    <link rel="stylesheet" href="/static/cads/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/cads/css/custom.css"/>
+    <link rel="stylesheet" href="/static/cads/css/font-awesome.css"/>
+    <link rel="stylesheet" href="/static/cads/css/style.css"/>
+    <link rel="stylesheet" href="/static/cads/css/responsive.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,600italic,600,300,300italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<header>
+    <section class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1 class="logo"><a href="http://dordam.com/"><img src="/static/cads/images/logo.png"/></a></h1>
+                </div>
+                <div class="col-md-8">
+                    <div class="search-n-post">
+                        <a class="s-item search" href="#"><i class="c-icon c-search"></i>Search an Ad</a>
+                        <span class="or"><span>OR</span></span>
+                        <a class="s-item post" href="#">Post an Ad<i class="c-icon c-pin"></i></a>
+                    </div>
+                    <div class="user-access">
+					{% if request.user.is_authenticated %}
+						<img src="{{ request.user.profile.profile_image_url }}"/>
+							<a href="/accounts/logout/" class="user-access-item login">Logout</a>
+							{% if request.user.first_name or request.user.last_name %}
+								{{ request.user.first_name }} {{ request.user.last_name }}
+							{% else %}
+								{{ request.user.username }}
+							{% endif %}
+							{% if request.user.profile.account_verified %} (verified) {% else %} (unverified) {% endif %}
+						 
+						{% else %}
+						<a class="user-access-item login" href="/accounts/login/"><i class="c-icon c-login"></i>Login</a>
+                        <a class="user-access-item register" href="/accounts/signup/"><i class="c-icon c-register"></i>Register</a>
+						{% endif %}
+       
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+</header>
+<div id="page-content">
+
+	 <section class="adlist">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					left bar
+				</div>
+				
+				<div class="col-md-9">
+					{% block ads_entries %}
+					{% for object in object_list %}
+					  <div class="post">
+						<a href="/ads-view/{{ object.slug }}">
+							<h2>{{ object.title }}</h2>
+						</a>
+						<p class="meta">{{ object.created }}</p>
+						<p class="meta"><img src="{{ MEDIA_URL }}{{ object.image }}" alt="" width="100" /></p>
+						{{ object.body }}
+					  </div>
+					{% endfor %}
+					{% endblock %}
+				</div>
+				 
+	 
+			</div>
+		</div>
+	</section>
+
+</div>
+
+<footer>
+
+    <section class="footer">
+        <div class="container">
+            <div class="row footer_row">
+                <div class="col-md-6">
+                    <a class="post-ad-btn">Post your free Add</a>
+                </div>
+                <div class="col-md-6 footer-right-col">
+                    <ul class="quick-links">
+                        <li><a href="@">Customer Service</a></li>
+                        <li><a href="@">Privacy & Policy</a></li>
+                        <li><a href="@">FAQ</a></li>
+                        <li><a href="@">About Us</a></li>
+                    </ul>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+</footer>
+<script type="text/javascript" src="/static/cads/js/jquery.js"></script>
+<script type="text/javascript" src="/static/cads/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/cads/js/custom.js"></script>
+</body>
+</html>
